@@ -15,12 +15,13 @@ import com.piksel.rm.service.dto.PaymentDTO;
 @Service
 public class PaymentService {
 
-	Logger log = LoggerFactory.getLogger(PaymentService.class);
+	private final Logger log = LoggerFactory.getLogger(PaymentService.class);
 
 	@Autowired
-	StudioRepository studioRepository;
+	private StudioRepository studioRepository;
 
 	public List<PaymentDTO> findAll(Pageable page) {
+		log.debug("Request to get all Payments");
 		return studioRepository.calculateAllPayments(page);
 	}
 

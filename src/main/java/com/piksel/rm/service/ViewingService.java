@@ -7,22 +7,28 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.piksel.rm.domain.View;
 import com.piksel.rm.repository.EpisodeRepository;
+import com.piksel.rm.repository.ViewRepository;
 import com.piksel.rm.service.dto.ViewDTO;
 
 @Service
 public class ViewingService {
 
-	private static final Logger log = LoggerFactory.getLogger(ViewingService.class);
+	private final Logger log = LoggerFactory.getLogger(ViewingService.class);
 
 	@Autowired
 	private EpisodeRepository episodeRepository;
 
+	@Autowired
+	private ViewRepository viewRepository;
+
 	@Async
 	@Transactional
-	public void viewItem(ViewDTO viewDto) {
-		log.debug("Incrementing view counter for episode: {}", viewDto.getEpisode());
-		episodeRepository.incrementViews(viewDto.getEpisode());
+	public void viewItem(ViewDTO viewDTO) {
+		log.debug("Incrementing view counter for episode: {}", viewDTO.getEpisode());
+		episodeRepository.incrementViews(viewDTO.getEpisode());
+		viewRepository.save(new View(viewDTO));
 	}
 
 	@Async

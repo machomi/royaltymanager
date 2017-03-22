@@ -6,7 +6,7 @@ To start your application in the deafult profile, simply run:
     
 ## Swagger UI
 
-There is swagger ui included. Please go to [http://localhost:8080/swagger-ui.html]
+There is a swagger ui included. Please go to [http://localhost:8080/swagger-ui.html]
 
 ## Docker
  

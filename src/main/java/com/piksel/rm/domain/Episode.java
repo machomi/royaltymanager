@@ -14,12 +14,14 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * An Episode.
  */
 // @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
 // property = "id")
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "episodes")
@@ -44,5 +46,9 @@ public class Episode implements Serializable {
 	@Min(0)
 	@NotNull
 	private Long viewsCounter = 0l;
+
+	public Episode(String id) {
+		this.id = id;
+	}
 
 }
