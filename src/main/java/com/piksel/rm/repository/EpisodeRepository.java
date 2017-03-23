@@ -16,7 +16,7 @@ public interface EpisodeRepository extends JpaRepository<Episode, String> {
 	@Query("UPDATE Episode e SET e.viewsCounter = 0")
 	public Integer reset();
 
-	@Modifying
+	@Modifying(clearAutomatically = true)
 	@Query("UPDATE Episode e SET e.viewsCounter = e.viewsCounter + 1 WHERE e.id = :id")
 	public void incrementViews(@Param("id") String id);
 

@@ -30,7 +30,7 @@ public class PaymentResource {
 
 	@JsonView(PaymentView.Item.class)
 	@GetMapping("/royaltymanager/payments/{studioId}")
-	public ResponseEntity<PaymentDTO> getPayments(@PathVariable("studioId") String studioId) {
+	public ResponseEntity<PaymentDTO> getPayment(@PathVariable("studioId") String studioId) {
 		Optional<PaymentDTO> payment = paymentService.find(studioId);
 		if (payment.isPresent()) {
 			return ResponseEntity.ok(payment.get());
