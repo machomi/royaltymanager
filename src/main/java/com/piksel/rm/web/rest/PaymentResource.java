@@ -15,12 +15,15 @@ import com.piksel.rm.service.PaymentService;
 import com.piksel.rm.service.dto.PaymentDTO;
 import com.piksel.rm.service.dto.PaymentView;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 public class PaymentResource {
 
 	@Autowired
 	PaymentService paymentService;
 
+	@ApiOperation("Get list of all calculated payments")
 	@JsonView(PaymentView.List.class)
 	@GetMapping("/royaltymanager/payments")
 	public ResponseEntity<List<PaymentDTO>> getPayments(Pageable page) {
@@ -28,6 +31,7 @@ public class PaymentResource {
 		return ResponseEntity.ok(result);
 	}
 
+	@ApiOperation("Get payment calculation for specific studio (rights owner)")
 	@JsonView(PaymentView.Item.class)
 	@GetMapping("/royaltymanager/payments/{studioId}")
 	public ResponseEntity<PaymentDTO> getPayment(@PathVariable("studioId") String studioId) {

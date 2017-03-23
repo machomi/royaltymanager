@@ -19,8 +19,6 @@ import lombok.NoArgsConstructor;
 /**
  * An Episode.
  */
-// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-// property = "id")
 @NoArgsConstructor
 @Entity
 @Data
@@ -32,11 +30,10 @@ public class Episode implements Serializable {
 	@Id
 	private String id;
 
-	@Column(name = "name")
+	@NotNull
+	@Column(name = "name", length = 50, nullable = false)
 	private String name;
 
-	// @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
-	// property = "id")
 	@JsonIdentityReference(alwaysAsId = true)
 	@ManyToOne(optional = false)
 	@NotNull

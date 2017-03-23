@@ -19,8 +19,6 @@ import lombok.Data;
 /**
  * A Studio.
  */
-// @JsonIdentityInfo(generator = ObjectIdGenerators.StringIdGenerator.class,
-// property = "id", scope = Studio.class)
 @Entity
 @Data
 @Table(name = "studios")
@@ -29,9 +27,6 @@ public class Studio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	// @GeneratedValue(strategy = GenerationType.IDENTITY)
-	// @GeneratedValue(generator = "system-uuid")
-	// @GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String id;
 
 	@NotNull
