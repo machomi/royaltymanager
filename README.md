@@ -4,11 +4,11 @@ To start your application in the deafult profile, simply run:
 
     ./gradlew
     
-Command above compile source and start default task which is *bootRun*.    
+Gradlew command compiles source and starts default task which is *bootRun*.    
     
 ## Swagger UI
 
-There is a swagger ui included. Please go to http://localhost:8080/swagger-ui.html
+There is a swagger ui included. Please go to http://localhost:8080/swagger-ui.html to play with api from nice GUI.
 
 ## Packaging app into jar
 
@@ -32,4 +32,6 @@ Run from docker container:
 
 	docker run -p 8080:8080 royaltymanager
 
-You can send docker to background adding option -d (deamon) at the end of prevoius command.
+You can send docker to background adding option -d (daemon) at the end of prevoius command.
+
+Once your container started you can access api through http://localhost:8080
